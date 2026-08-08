@@ -1,0 +1,301 @@
+hoarding_id,location,size,traffic_score,monthly_rate,category
+H0001,Kandivali Highway,40x20 ft,22,61626,Budget
+H0002,Dadar Circle,40x20 ft,89,253109,Premium
+H0003,Bandra Main Road,10x8 ft,76,346451,Premium
+H0004,Andheri Flyover,40x20 ft,71,114626,Standard
+H0005,Bandra Signal,40x20 ft,27,58900,Budget
+H0006,Bandra Circle,40x20 ft,51,119092,Standard
+H0007,Kandivali Main Road,10x8 ft,86,275243,Premium
+H0008,Thane Highway,20x10 ft,88,285197,Premium
+H0009,Thane Signal,10x8 ft,77,189140,Premium
+H0010,Borivali Junction,40x20 ft,65,114953,Standard
+H0011,Vashi Junction,30x15 ft,11,48838,Budget
+H0012,Vashi Signal,20x10 ft,87,208709,Premium
+H0013,Andheri Flyover,30x15 ft,55,133518,Standard
+H0014,Borivali Signal,40x20 ft,19,60347,Budget
+H0015,Worli Flyover,10x8 ft,67,123976,Standard
+H0016,Borivali Highway,40x20 ft,95,189428,Premium
+H0017,Vashi Flyover,10x8 ft,50,75192,Standard
+H0018,Chembur Junction,30x15 ft,49,72329,Standard
+H0019,Ghatkopar Flyover,20x10 ft,23,42393,Budget
+H0020,Dadar Flyover,10x8 ft,84,180580,Premium
+H0021,Kandivali Junction,20x10 ft,81,347716,Premium
+H0022,Borivali Flyover,10x8 ft,38,35289,Budget
+H0023,Vashi Junction,30x15 ft,21,45385,Budget
+H0024,Vashi Highway,20x10 ft,20,47061,Budget
+H0025,Thane Circle,40x20 ft,75,265392,Premium
+H0026,Thane Main Road,20x10 ft,59,99684,Standard
+H0027,Malad Flyover,40x20 ft,98,255131,Premium
+H0028,Andheri Signal,30x15 ft,25,37456,Budget
+H0029,Malad Highway,10x8 ft,60,165087,Standard
+H0030,Chembur Main Road,10x8 ft,32,48524,Budget
+H0031,Worli Circle,40x20 ft,15,55783,Budget
+H0032,Vashi Signal,30x15 ft,97,255569,Premium
+H0033,Ghatkopar Circle,10x8 ft,71,75337,Standard
+H0034,Kandivali Junction,30x15 ft,47,78221,Standard
+H0035,Vashi Flyover,10x8 ft,10,34727,Budget
+H0036,Malad Signal,10x8 ft,26,25262,Budget
+H0037,Worli Flyover,10x8 ft,89,333510,Premium
+H0038,Malad Flyover,40x20 ft,89,255467,Premium
+H0039,Bandra Main Road,30x15 ft,15,43516,Budget
+H0040,Thane Main Road,10x8 ft,89,347042,Premium
+H0041,Andheri Highway,30x15 ft,62,103756,Standard
+H0042,Vashi Signal,30x15 ft,39,44902,Budget
+H0043,Malad Main Road,20x10 ft,10,41111,Budget
+H0044,Andheri Signal,40x20 ft,44,33129,Budget
+H0045,Worli Circle,10x8 ft,77,315095,Premium
+H0046,Malad Highway,40x20 ft,55,127007,Standard
+H0047,Vashi Junction,20x10 ft,97,308498,Premium
+H0048,Worli Signal,40x20 ft,97,203082,Premium
+H0049,Borivali Junction,20x10 ft,78,339426,Premium
+H0050,Andheri Highway,30x15 ft,13,21339,Budget
+H0051,Dadar Highway,20x10 ft,95,214806,Premium
+H0052,Dadar Highway,30x15 ft,33,36391,Budget
+H0053,Bandra Signal,30x15 ft,43,35682,Budget
+H0054,Borivali Main Road,40x20 ft,45,95142,Standard
+H0055,Chembur Highway,40x20 ft,14,25136,Budget
+H0056,Ghatkopar Circle,40x20 ft,65,134435,Standard
+H0057,Vashi Junction,10x8 ft,48,169606,Standard
+H0058,Powai Flyover,10x8 ft,79,323469,Premium
+H0059,Ghatkopar Circle,10x8 ft,66,150275,Standard
+H0060,Powai Circle,10x8 ft,32,21763,Budget
+H0061,Vashi Highway,40x20 ft,86,241615,Premium
+H0062,Vashi Main Road,30x15 ft,10,38355,Budget
+H0063,Powai Junction,40x20 ft,14,56886,Budget
+H0064,Andheri Flyover,10x8 ft,23,40288,Budget
+H0065,Kandivali Main Road,20x10 ft,56,160131,Standard
+H0066,Kandivali Circle,40x20 ft,72,76566,Standard
+H0067,Powai Main Road,10x8 ft,14,58897,Budget
+H0068,Borivali Junction,20x10 ft,61,166430,Standard
+H0069,Andheri Main Road,20x10 ft,92,322182,Premium
+H0070,Bandra Highway,30x15 ft,24,61918,Budget
+H0071,Vashi Junction,10x8 ft,57,89176,Standard
+H0072,Malad Flyover,10x8 ft,33,63053,Budget
+H0073,Borivali Signal,40x20 ft,55,163993,Standard
+H0074,Andheri Signal,10x8 ft,71,140083,Standard
+H0075,Malad Highway,20x10 ft,82,265716,Premium
+H0076,Worli Highway,20x10 ft,23,30975,Budget
+H0077,Dadar Circle,20x10 ft,41,43805,Budget
+H0078,Vashi Junction,30x15 ft,24,44711,Budget
+H0079,Ghatkopar Signal,40x20 ft,62,144628,Standard
+H0080,Borivali Flyover,10x8 ft,75,223751,Premium
+H0081,Vashi Main Road,40x20 ft,80,184744,Premium
+H0082,Powai Flyover,30x15 ft,91,264053,Premium
+H0083,Andheri Junction,40x20 ft,14,40984,Budget
+H0084,Borivali Circle,30x15 ft,48,84517,Standard
+H0085,Bandra Circle,10x8 ft,58,104907,Standard
+H0086,Kandivali Highway,10x8 ft,66,74832,Standard
+H0087,Malad Main Road,30x15 ft,62,95643,Standard
+H0088,Powai Flyover,40x20 ft,38,56475,Budget
+H0089,Powai Main Road,10x8 ft,10,46441,Budget
+H0090,Kandivali Junction,30x15 ft,34,61359,Budget
+H0091,Kandivali Highway,10x8 ft,65,131463,Standard
+H0092,Andheri Highway,40x20 ft,68,161590,Standard
+H0093,Kandivali Junction,10x8 ft,12,36516,Budget
+H0094,Malad Highway,20x10 ft,35,41657,Budget
+H0095,Malad Main Road,10x8 ft,23,21368,Budget
+H0096,Andheri Main Road,30x15 ft,95,301573,Premium
+H0097,Kandivali Junction,10x8 ft,42,22369,Budget
+H0098,Bandra Flyover,10x8 ft,80,207806,Premium
+H0099,Vashi Signal,10x8 ft,67,88918,Standard
+H0100,Powai Junction,30x15 ft,85,317351,Premium
+H0101,Worli Junction,20x10 ft,66,143805,Standard
+H0102,Andheri Circle,40x20 ft,57,163236,Standard
+H0103,Chembur Junction,10x8 ft,52,82919,Standard
+H0104,Thane Flyover,10x8 ft,81,330002,Premium
+H0105,Thane Signal,30x15 ft,98,337388,Premium
+H0106,Vashi Highway,30x15 ft,43,58090,Budget
+H0107,Ghatkopar Highway,40x20 ft,81,273650,Premium
+H0108,Ghatkopar Highway,40x20 ft,24,26866,Budget
+H0109,Ghatkopar Flyover,40x20 ft,61,91308,Standard
+H0110,Ghatkopar Signal,10x8 ft,58,133707,Standard
+H0111,Vashi Flyover,20x10 ft,40,21889,Budget
+H0112,Ghatkopar Junction,40x20 ft,21,44476,Budget
+H0113,Malad Highway,30x15 ft,83,250777,Premium
+H0114,Chembur Circle,20x10 ft,75,231712,Premium
+H0115,Chembur Junction,20x10 ft,80,193654,Premium
+H0116,Kandivali Highway,10x8 ft,69,124857,Standard
+H0117,Chembur Main Road,30x15 ft,15,22337,Budget
+H0118,Kandivali Circle,20x10 ft,89,181426,Premium
+H0119,Andheri Highway,40x20 ft,94,182580,Premium
+H0120,Worli Main Road,40x20 ft,59,91855,Standard
+H0121,Malad Signal,30x15 ft,73,84158,Standard
+H0122,Kandivali Circle,30x15 ft,29,48934,Budget
+H0123,Bandra Flyover,20x10 ft,92,195260,Premium
+H0124,Chembur Main Road,30x15 ft,45,135986,Standard
+H0125,Bandra Signal,40x20 ft,92,304920,Premium
+H0126,Andheri Circle,10x8 ft,19,64176,Budget
+H0127,Powai Junction,10x8 ft,64,146602,Standard
+H0128,Malad Main Road,30x15 ft,95,186521,Premium
+H0129,Ghatkopar Junction,40x20 ft,11,39289,Budget
+H0130,Vashi Junction,20x10 ft,14,57860,Budget
+H0131,Bandra Signal,30x15 ft,24,50454,Budget
+H0132,Ghatkopar Signal,40x20 ft,89,284727,Premium
+H0133,Kandivali Junction,10x8 ft,94,236144,Premium
+H0134,Ghatkopar Signal,30x15 ft,24,61918,Budget
+H0135,Chembur Main Road,40x20 ft,89,346534,Premium
+H0136,Worli Flyover,40x20 ft,25,37408,Budget
+H0137,Thane Flyover,40x20 ft,26,54114,Budget
+H0138,Borivali Flyover,10x8 ft,17,29937,Budget
+H0139,Andheri Flyover,20x10 ft,97,191803,Premium
+H0140,Andheri Highway,40x20 ft,57,75475,Standard
+H0141,Borivali Signal,20x10 ft,48,164323,Standard
+H0142,Malad Flyover,30x15 ft,65,105055,Standard
+H0143,Ghatkopar Junction,10x8 ft,84,275681,Premium
+H0144,Dadar Junction,10x8 ft,42,36526,Budget
+H0145,Malad Main Road,40x20 ft,76,199390,Premium
+H0146,Borivali Circle,10x8 ft,59,121473,Standard
+H0147,Worli Junction,40x20 ft,80,303151,Premium
+H0148,Powai Junction,40x20 ft,58,124930,Standard
+H0149,Kandivali Main Road,40x20 ft,35,38473,Budget
+H0150,Worli Main Road,10x8 ft,43,25909,Budget
+H0151,Powai Main Road,10x8 ft,81,256164,Premium
+H0152,Borivali Highway,30x15 ft,12,57645,Budget
+H0153,Malad Junction,20x10 ft,66,84862,Standard
+H0154,Bandra Junction,20x10 ft,38,61611,Budget
+H0155,Malad Circle,40x20 ft,51,98902,Standard
+H0156,Worli Signal,10x8 ft,79,182217,Premium
+H0157,Kandivali Signal,40x20 ft,49,142353,Standard
+H0158,Borivali Highway,20x10 ft,81,283071,Premium
+H0159,Thane Circle,40x20 ft,54,127733,Standard
+H0160,Chembur Main Road,20x10 ft,30,53820,Budget
+H0161,Dadar Main Road,20x10 ft,55,169221,Standard
+H0162,Powai Signal,10x8 ft,94,199624,Premium
+H0163,Malad Highway,40x20 ft,44,41889,Budget
+H0164,Thane Junction,40x20 ft,13,52676,Budget
+H0165,Ghatkopar Main Road,40x20 ft,30,36877,Budget
+H0166,Kandivali Main Road,30x15 ft,26,36628,Budget
+H0167,Borivali Circle,40x20 ft,67,112065,Standard
+H0168,Chembur Junction,40x20 ft,66,145104,Standard
+H0169,Thane Circle,20x10 ft,61,97956,Standard
+H0170,Kandivali Flyover,30x15 ft,31,46953,Budget
+H0171,Worli Main Road,10x8 ft,37,38324,Budget
+H0172,Borivali Highway,10x8 ft,24,26226,Budget
+H0173,Kandivali Flyover,20x10 ft,75,227523,Premium
+H0174,Borivali Main Road,30x15 ft,35,40859,Budget
+H0175,Ghatkopar Main Road,20x10 ft,56,71610,Standard
+H0176,Borivali Signal,10x8 ft,11,42756,Budget
+H0177,Kandivali Circle,10x8 ft,59,163832,Standard
+H0178,Powai Signal,20x10 ft,86,211572,Premium
+H0179,Malad Circle,30x15 ft,38,33493,Budget
+H0180,Vashi Main Road,40x20 ft,43,64677,Budget
+H0181,Vashi Highway,40x20 ft,87,299799,Premium
+H0182,Vashi Flyover,30x15 ft,43,62152,Budget
+H0183,Thane Circle,10x8 ft,52,83705,Standard
+H0184,Andheri Signal,10x8 ft,63,74797,Standard
+H0185,Andheri Flyover,30x15 ft,77,318546,Premium
+H0186,Dadar Flyover,30x15 ft,25,46586,Budget
+H0187,Kandivali Flyover,10x8 ft,57,118538,Standard
+H0188,Kandivali Highway,30x15 ft,93,271387,Premium
+H0189,Chembur Circle,30x15 ft,68,160494,Standard
+H0190,Bandra Junction,20x10 ft,71,132186,Standard
+H0191,Malad Signal,40x20 ft,72,167886,Standard
+H0192,Dadar Signal,10x8 ft,92,209775,Premium
+H0193,Borivali Flyover,30x15 ft,47,121236,Standard
+H0194,Worli Flyover,20x10 ft,22,58437,Budget
+H0195,Ghatkopar Highway,40x20 ft,75,327619,Premium
+H0196,Dadar Signal,30x15 ft,23,56511,Budget
+H0197,Ghatkopar Circle,10x8 ft,51,84069,Standard
+H0198,Malad Junction,40x20 ft,64,85015,Standard
+H0199,Borivali Flyover,40x20 ft,84,301238,Premium
+H0200,Borivali Signal,40x20 ft,78,275863,Premium
+H0201,Borivali Signal,30x15 ft,36,52783,Budget
+H0202,Worli Main Road,20x10 ft,89,193158,Premium
+H0203,Dadar Highway,20x10 ft,24,48131,Budget
+H0204,Chembur Junction,20x10 ft,33,38509,Budget
+H0205,Ghatkopar Signal,10x8 ft,89,317284,Premium
+H0206,Kandivali Main Road,30x15 ft,21,61118,Budget
+H0207,Borivali Circle,30x15 ft,42,44615,Budget
+H0208,Dadar Signal,40x20 ft,10,30178,Budget
+H0209,Ghatkopar Main Road,20x10 ft,61,79909,Standard
+H0210,Dadar Junction,10x8 ft,57,159681,Standard
+H0211,Thane Main Road,20x10 ft,98,317052,Premium
+H0212,Chembur Junction,20x10 ft,87,279741,Premium
+H0213,Bandra Junction,20x10 ft,64,132266,Standard
+H0214,Bandra Main Road,20x10 ft,65,141713,Standard
+H0215,Malad Flyover,40x20 ft,72,104430,Standard
+H0216,Bandra Junction,20x10 ft,93,225943,Premium
+H0217,Chembur Highway,30x15 ft,38,35597,Budget
+H0218,Thane Signal,20x10 ft,69,134770,Standard
+H0219,Worli Highway,10x8 ft,11,56931,Budget
+H0220,Worli Circle,10x8 ft,38,20262,Budget
+H0221,Malad Circle,10x8 ft,48,127555,Standard
+H0222,Chembur Flyover,30x15 ft,42,42809,Budget
+H0223,Vashi Main Road,10x8 ft,28,48867,Budget
+H0224,Andheri Main Road,10x8 ft,62,105255,Standard
+H0225,Dadar Main Road,10x8 ft,67,89892,Standard
+H0226,Andheri Main Road,30x15 ft,52,121622,Standard
+H0227,Malad Signal,40x20 ft,72,86603,Standard
+H0228,Worli Flyover,40x20 ft,32,60948,Budget
+H0229,Borivali Signal,30x15 ft,42,52512,Budget
+H0230,Bandra Highway,30x15 ft,48,141437,Standard
+H0231,Chembur Main Road,40x20 ft,25,21992,Budget
+H0232,Ghatkopar Main Road,20x10 ft,57,90467,Standard
+H0233,Dadar Circle,10x8 ft,92,204955,Premium
+H0234,Ghatkopar Circle,20x10 ft,17,20084,Budget
+H0235,Worli Flyover,40x20 ft,75,344589,Premium
+H0236,Thane Flyover,10x8 ft,20,47071,Budget
+H0237,Borivali Main Road,30x15 ft,14,54695,Budget
+H0238,Vashi Highway,40x20 ft,89,346499,Premium
+H0239,Borivali Main Road,30x15 ft,74,100814,Standard
+H0240,Chembur Highway,10x8 ft,49,76351,Standard
+H0241,Vashi Signal,10x8 ft,66,162416,Standard
+H0242,Kandivali Circle,40x20 ft,53,146620,Standard
+H0243,Chembur Highway,10x8 ft,19,32941,Budget
+H0244,Andheri Main Road,40x20 ft,15,22458,Budget
+H0245,Andheri Highway,30x15 ft,64,70571,Standard
+H0246,Thane Junction,20x10 ft,64,105457,Standard
+H0247,Powai Circle,30x15 ft,33,27071,Budget
+H0248,Vashi Highway,30x15 ft,92,201300,Premium
+H0249,Bandra Signal,20x10 ft,65,124984,Standard
+H0250,Worli Main Road,30x15 ft,45,87319,Standard
+H0251,Kandivali Main Road,40x20 ft,28,44803,Budget
+H0252,Kandivali Signal,40x20 ft,35,63169,Budget
+H0253,Kandivali Junction,10x8 ft,83,325215,Premium
+H0254,Thane Circle,10x8 ft,69,141586,Standard
+H0255,Chembur Flyover,40x20 ft,56,152453,Standard
+H0256,Dadar Junction,20x10 ft,46,85939,Standard
+H0257,Chembur Main Road,20x10 ft,34,20743,Budget
+H0258,Malad Main Road,30x15 ft,63,87261,Standard
+H0259,Thane Circle,40x20 ft,53,114799,Standard
+H0260,Bandra Junction,20x10 ft,69,114127,Standard
+H0261,Ghatkopar Signal,20x10 ft,63,104925,Standard
+H0262,Andheri Main Road,30x15 ft,22,41096,Budget
+H0263,Borivali Signal,40x20 ft,35,54782,Budget
+H0264,Bandra Flyover,20x10 ft,58,165288,Standard
+H0265,Kandivali Highway,20x10 ft,58,168709,Standard
+H0266,Powai Signal,10x8 ft,42,54933,Budget
+H0267,Chembur Main Road,30x15 ft,71,132010,Standard
+H0268,Malad Highway,10x8 ft,93,286429,Premium
+H0269,Malad Circle,20x10 ft,80,242455,Premium
+H0270,Kandivali Signal,20x10 ft,36,46442,Budget
+H0271,Thane Circle,40x20 ft,95,201443,Premium
+H0272,Worli Highway,10x8 ft,78,273414,Premium
+H0273,Powai Main Road,40x20 ft,45,153618,Standard
+H0274,Ghatkopar Signal,40x20 ft,81,239294,Premium
+H0275,Dadar Flyover,10x8 ft,87,300097,Premium
+H0276,Powai Highway,30x15 ft,38,64437,Budget
+H0277,Thane Flyover,20x10 ft,41,60712,Budget
+H0278,Ghatkopar Main Road,20x10 ft,79,247351,Premium
+H0279,Bandra Signal,10x8 ft,54,79073,Standard
+H0280,Malad Highway,10x8 ft,54,128588,Standard
+H0281,Chembur Flyover,10x8 ft,15,63347,Budget
+H0282,Thane Highway,40x20 ft,40,42989,Budget
+H0283,Bandra Highway,20x10 ft,38,25792,Budget
+H0284,Chembur Signal,30x15 ft,66,76905,Standard
+H0285,Ghatkopar Junction,30x15 ft,24,41969,Budget
+H0286,Thane Main Road,40x20 ft,90,195355,Premium
+H0287,Dadar Signal,30x15 ft,32,48656,Budget
+H0288,Dadar Highway,20x10 ft,57,139820,Standard
+H0289,Dadar Highway,20x10 ft,31,48833,Budget
+H0290,Andheri Highway,20x10 ft,54,105059,Standard
+H0291,Dadar Main Road,20x10 ft,28,31080,Budget
+H0292,Kandivali Signal,20x10 ft,51,166320,Standard
+H0293,Chembur Circle,30x15 ft,83,344756,Premium
+H0294,Bandra Signal,20x10 ft,42,38912,Budget
+H0295,Ghatkopar Junction,30x15 ft,75,230627,Premium
+H0296,Dadar Signal,10x8 ft,74,104244,Standard
+H0297,Kandivali Highway,20x10 ft,58,114062,Standard
+H0298,Worli Junction,20x10 ft,11,38269,Budget
+H0299,Powai Highway,10x8 ft,31,29695,Budget
+H0300,Dadar Junction,30x15 ft,18,49096,Budget

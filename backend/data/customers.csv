@@ -1,0 +1,151 @@
+customer_id,name,industry,budget_band,relationship_score,last_contact_date
+C0001,Star Technologies,Healthcare,High,9,2026-03-29
+C0002,Golden Realty,Real Estate,Mid,4,2026-02-07
+C0003,Bright Foods & Beverages,Finance,Low,1,2026-04-08
+C0004,Silver FMCG Co,Tech,Low,3,2026-05-29
+C0005,Shree FMCG Co,FMCG,Low,5,2026-08-01
+C0006,Bright Healthcare,Healthcare,Low,2,2026-07-17
+C0007,Shree Motors,F&B,High,4,2026-06-05
+C0008,Apex FMCG Co,F&B,Low,6,2026-06-24
+C0009,Zenith Technologies,Automobile,Low,1,2026-07-19
+C0010,Silver FMCG Co,FMCG,Mid,3,2026-07-03
+C0011,Blue Healthcare,Automobile,Mid,8,2026-01-01
+C0012,Silver Healthcare,Entertainment,Mid,1,2026-05-09
+C0013,Golden Academy,Entertainment,Low,8,2026-07-23
+C0014,Shree Finance Group,F&B,High,1,2026-02-03
+C0015,Urban Academy,Real Estate,High,7,2026-06-15
+C0016,Bright Healthcare,Education,Mid,3,2026-07-02
+C0017,Elite Academy,Real Estate,Low,6,2026-02-19
+C0018,Blue Technologies,Retail,High,3,2026-07-01
+C0019,Metro Technologies,Tech,Mid,7,2026-07-05
+C0020,Golden Technologies,Finance,Mid,9,2026-03-18
+C0021,Silver Academy,Education,High,3,2025-12-14
+C0022,Om Motors,Healthcare,Low,1,2026-06-27
+C0023,Om Studios,Tech,High,1,2026-01-31
+C0024,Blue Retail Pvt Ltd,F&B,Mid,9,2026-06-10
+C0025,Silver Motors,FMCG,High,4,2026-04-02
+C0026,Shree Foods & Beverages,FMCG,Mid,5,2026-05-30
+C0027,Prime Academy,FMCG,High,5,2026-01-25
+C0028,Zenith Technologies,Retail,High,1,2026-01-08
+C0029,Nova Motors,F&B,High,7,2026-01-28
+C0030,Shree Technologies,Tech,Mid,9,2025-11-30
+C0031,Metro FMCG Co,Automobile,Mid,9,2026-05-13
+C0032,Elite FMCG Co,Retail,Mid,6,2026-05-15
+C0033,Urban Realty,Retail,High,10,2025-12-30
+C0034,Silver Finance Group,Healthcare,Low,6,2026-06-25
+C0035,Bright Academy,Real Estate,Low,4,2026-07-11
+C0036,Silver Retail Pvt Ltd,Education,High,5,2026-01-22
+C0037,Apex Finance Group,F&B,Low,8,2026-01-20
+C0038,Blue Motors,Tech,Mid,6,2026-03-30
+C0039,Golden Academy,Tech,High,6,2026-03-07
+C0040,Prime Technologies,Real Estate,Low,2,2026-01-30
+C0041,Nova Technologies,Tech,High,8,2026-07-11
+C0042,Nova Retail Pvt Ltd,F&B,Low,10,2026-08-05
+C0043,Silver Foods & Beverages,FMCG,Mid,10,2026-06-23
+C0044,Apex Technologies,Real Estate,Low,5,2026-05-19
+C0045,Urban Finance Group,Retail,Mid,4,2026-03-18
+C0046,Metro Motors,Tech,Mid,2,2026-06-25
+C0047,Zenith Motors,Automobile,High,8,2026-02-27
+C0048,Urban Finance Group,Automobile,High,1,2026-02-28
+C0049,Bright FMCG Co,Automobile,High,6,2026-01-10
+C0050,Metro Academy,Education,High,3,2026-04-12
+C0051,Prime Healthcare,Real Estate,High,6,2026-03-24
+C0052,Apex Foods & Beverages,Automobile,Mid,5,2026-06-11
+C0053,Urban Realty,Education,Mid,4,2026-01-03
+C0054,Silver Healthcare,Automobile,Mid,6,2026-07-28
+C0055,Star Motors,Education,High,6,2026-04-22
+C0056,Shree Technologies,F&B,Low,7,2026-02-04
+C0057,Zenith Technologies,Tech,High,6,2026-07-02
+C0058,Nova Studios,Tech,High,7,2026-02-21
+C0059,Bright Academy,Entertainment,High,10,2026-02-18
+C0060,Golden Studios,F&B,Mid,3,2026-02-08
+C0061,Nova Studios,FMCG,High,6,2026-07-21
+C0062,Bright FMCG Co,Education,Low,5,2026-08-05
+C0063,Shree Technologies,FMCG,Mid,5,2025-12-28
+C0064,Coastal Foods & Beverages,FMCG,High,8,2026-05-07
+C0065,Bright Finance Group,Education,Mid,2,2026-03-13
+C0066,Om Finance Group,FMCG,Mid,4,2026-01-21
+C0067,Metro Motors,FMCG,Mid,10,2026-05-27
+C0068,Elite Foods & Beverages,Tech,High,3,2026-05-06
+C0069,Prime Motors,Retail,High,6,2025-12-31
+C0070,Nova Academy,Real Estate,Mid,5,2025-12-13
+C0071,Metro Academy,F&B,Mid,4,2026-08-04
+C0072,Apex Technologies,Entertainment,High,10,2026-03-04
+C0073,Nova Healthcare,Tech,High,8,2026-03-28
+C0074,Shree Technologies,F&B,Low,9,2026-03-17
+C0075,Bright Studios,FMCG,Low,5,2026-02-14
+C0076,Apex Finance Group,FMCG,Mid,3,2026-03-10
+C0077,Shree Realty,Automobile,High,9,2026-02-05
+C0078,Shree Finance Group,Real Estate,High,1,2026-05-03
+C0079,Star FMCG Co,Tech,Mid,3,2026-07-27
+C0080,Star Realty,Retail,Mid,7,2025-12-20
+C0081,Zenith Academy,Real Estate,High,1,2025-12-11
+C0082,Blue Finance Group,Education,High,5,2026-03-19
+C0083,Nova FMCG Co,Entertainment,Mid,7,2026-05-03
+C0084,Om Healthcare,Entertainment,High,6,2026-02-09
+C0085,Shree Realty,Education,Mid,2,2025-12-16
+C0086,Silver Foods & Beverages,Real Estate,Mid,9,2026-06-25
+C0087,Golden FMCG Co,Real Estate,High,2,2026-06-10
+C0088,Prime Realty,Education,Low,10,2026-04-24
+C0089,Blue Retail Pvt Ltd,Healthcare,High,8,2026-07-31
+C0090,Golden Technologies,Healthcare,Low,7,2026-01-15
+C0091,Apex Studios,Tech,High,7,2026-05-22
+C0092,Shree FMCG Co,F&B,Mid,8,2026-06-01
+C0093,Elite Retail Pvt Ltd,FMCG,Mid,9,2026-07-24
+C0094,Elite Finance Group,Real Estate,Low,1,2026-06-03
+C0095,Elite FMCG Co,Automobile,Low,1,2026-06-04
+C0096,Blue Motors,Healthcare,Low,4,2026-04-25
+C0097,Silver Academy,Healthcare,High,8,2025-12-25
+C0098,Nova Motors,Real Estate,High,8,2026-04-16
+C0099,Golden Foods & Beverages,Tech,High,2,2026-05-13
+C0100,Blue Academy,Healthcare,Low,6,2026-07-16
+C0101,Bright Academy,Finance,Mid,3,2026-07-04
+C0102,Blue Foods & Beverages,Retail,Mid,9,2026-07-29
+C0103,Shree Realty,Entertainment,High,7,2026-02-11
+C0104,Metro Foods & Beverages,FMCG,Mid,9,2026-07-30
+C0105,Shree FMCG Co,Finance,Low,2,2026-01-30
+C0106,Urban Studios,Education,High,2,2026-03-05
+C0107,Nova Academy,F&B,Mid,5,2026-07-09
+C0108,Star Academy,Automobile,High,4,2026-03-31
+C0109,Coastal Motors,Healthcare,Low,1,2026-02-14
+C0110,Star Studios,FMCG,High,9,2025-12-11
+C0111,Elite Finance Group,Tech,Low,9,2026-01-02
+C0112,Nova Technologies,Tech,Low,2,2026-03-29
+C0113,Nova Technologies,F&B,Low,3,2026-06-09
+C0114,Shree Academy,FMCG,High,1,2026-07-24
+C0115,Om Foods & Beverages,Automobile,High,10,2026-02-14
+C0116,Nova Finance Group,Finance,High,3,2025-12-17
+C0117,Golden Realty,Entertainment,Low,8,2026-07-21
+C0118,Om Healthcare,Automobile,High,9,2026-04-24
+C0119,Golden Technologies,F&B,Mid,1,2026-04-20
+C0120,Elite Technologies,Tech,Low,4,2026-01-25
+C0121,Star Motors,Real Estate,Mid,3,2026-02-04
+C0122,Blue Foods & Beverages,Automobile,Low,2,2026-05-08
+C0123,Zenith Finance Group,Tech,Low,3,2026-03-16
+C0124,Elite Realty,F&B,Mid,6,2026-06-15
+C0125,Nova Healthcare,Healthcare,Mid,10,2026-05-30
+C0126,Blue Motors,F&B,Mid,6,2026-07-27
+C0127,Shree Finance Group,Finance,Mid,5,2026-05-28
+C0128,Nova Foods & Beverages,F&B,High,4,2025-12-26
+C0129,Elite Studios,Tech,Mid,9,2026-04-03
+C0130,Nova Studios,Real Estate,Mid,8,2026-04-06
+C0131,Elite Studios,F&B,Low,3,2026-06-21
+C0132,Om Academy,FMCG,Mid,5,2026-01-14
+C0133,Silver Technologies,Finance,Mid,7,2026-05-16
+C0134,Coastal Academy,Healthcare,High,2,2026-02-08
+C0135,Star Academy,Healthcare,Mid,7,2026-05-16
+C0136,Coastal Studios,Real Estate,High,6,2025-12-15
+C0137,Zenith FMCG Co,Automobile,High,2,2026-08-01
+C0138,Golden Finance Group,FMCG,Low,3,2025-11-23
+C0139,Apex Technologies,Tech,Mid,7,2026-04-15
+C0140,Golden Academy,Real Estate,Low,3,2026-01-03
+C0141,Om Retail Pvt Ltd,Tech,Mid,2,2025-12-04
+C0142,Bright Retail Pvt Ltd,Automobile,High,4,2026-07-12
+C0143,Golden Retail Pvt Ltd,Education,Mid,3,2026-07-20
+C0144,Silver Finance Group,FMCG,Mid,4,2026-03-23
+C0145,Coastal Academy,Healthcare,Low,7,2026-06-09
+C0146,Elite Foods & Beverages,F&B,Mid,2,2026-04-17
+C0147,Coastal FMCG Co,Finance,Mid,3,2026-03-03
+C0148,Star Realty,FMCG,High,6,2026-03-17
+C0149,Silver Foods & Beverages,Real Estate,Mid,1,2026-07-15
+C0150,Apex Academy,Education,Low,10,2026-06-05
