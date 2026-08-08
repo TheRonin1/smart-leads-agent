@@ -1,0 +1,55 @@
+:root {
+  --bg: #12151B;
+  --surface: #1A1F29;
+  --surface-raised: #212734;
+  --border: #2A3140;
+  --text-primary: #E8EAED;
+  --text-secondary: #8B93A3;
+  --text-tertiary: #5B6373;
+
+  --amber: #F5A623;
+  --amber-dim: #3D2E14;
+  --green: #4ADE80;
+  --green-dim: #163825;
+  --blue: #5B9DF9;
+  --blue-dim: #16233D;
+  --red: #F26D6D;
+  --red-dim: #3D1A1A;
+
+  --font-display: 'Archivo', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --radius: 8px;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+button { font-family: inherit; cursor: pointer; }
+a { color: inherit; }
+
+::selection { background: var(--amber); color: #12151B; }
+
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+.mono { font-family: var(--font-mono); }
+
+.scrollbar-thin::-webkit-scrollbar { width: 8px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
