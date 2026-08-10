@@ -15,6 +15,9 @@ import {
   type LeadDTO, type LeadsResponse, type PitchResponse, type VacancyDTO,
 } from "@/api/client";
 
+const USER_NAME = "Yash";
+const USER_INITIALS = USER_NAME.slice(0, 2).toUpperCase();
+
 const money = (n: number) => `₹${(n / 100000).toFixed(2)}L`;
 
 // The backend doesn't compute a "priority" field — this derives one from the site's real
@@ -94,9 +97,12 @@ function buildPitchText(customerName: string, p: PitchResponse, tone: string, le
   return greeting + body;
 }
 
+type ViewName = "Dashboard" | "Vacancies" | "Leads" | "Analytics" | "AI Pitch Studio";
+
 export default function Home() {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileNav, setMobileNav] = useState(false);
+  const [view, setView] = useState<ViewName>("Dashboard");
 
   const [vacancyData, setVacancyData] = useState<Awaited<ReturnType<typeof getVacancies>> | null>(null);
   const [vacanciesError, setVacanciesError] = useState<string | null>(null);
@@ -122,6 +128,20 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [priority, setPriority] = useState("All");
   const [sort, setSort] = useState("Soonest vacancy");
+
+  // Used by the standalone Leads / AI Pitch Studio pages, so a hoarding can be picked
+  // without going through the Dashboard drawer first. Reuses the same leadsByHoarding
+  // cache and getLeads() fetch as the rest of the app — no separate data path.
+  const [pickerHoardingId, setPickerHoardingId] = useState<string | null>(null);
+  const [studioHoardingId, setStudioHoardingId] = useState<string | null>(null);
+  const [studioCustomerId, setStudioCustomerId] = useState<string | null>(null);
+
+  function ensureLeadsLoaded(hoardingId: string) {
+    if (leadsByHoarding[hoardingId]) return;
+    getLeads(hoardingId)
+      .then(data => setLeadsByHoarding(prev => ({ ...prev, [hoardingId]: data })))
+      .catch(() => toast.error("Could not load ranked leads for this site"));
+  }
 
   // Initial load: vacancies, then leads for the soonest one (also used for the AI insight panel)
   useEffect(() => {
@@ -218,8 +238,8 @@ export default function Home() {
     }
   }
 
-  const nav = [
-    { icon: LayoutDashboard, label: "Dashboard", active: true },
+  const nav: { icon: typeof LayoutDashboard; label: ViewName }[] = [
+    { icon: LayoutDashboard, label: "Dashboard" },
     { icon: CalendarDays, label: "Vacancies" },
     { icon: Users, label: "Leads" },
     { icon: BarChart3, label: "Analytics" },
@@ -236,12 +256,15 @@ export default function Home() {
         <div className="flex h-[76px] items-center px-5">{collapsed ? <Logo compact /> : <Logo />}</div>
         <div className="px-3 pt-5">
           <div className={`mb-3 px-3 font-mono text-[9px] font-bold uppercase tracking-[.18em] text-[#9aaabd] ${collapsed ? "text-center" : ""}`}>{collapsed ? "···" : "Workspace"}</div>
-          {nav.map(({ icon: Icon, label, active }) => (
-            <button key={label} onClick={() => !active && toast.info(`${label} view is ready for the next data connection`)}
-              className={`group mb-1 flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-[12px] font-bold transition ${active ? "bg-[#eaf2ff] text-[#2f62b8]" : "text-[#6a7c91] hover:bg-[#f0f4f8] hover:text-[#263f5e]"}`}>
-              <Icon size={17} strokeWidth={active ? 2.4 : 1.8} />{!collapsed && <span>{label}</span>}{active && !collapsed && <span className="ml-auto h-1.5 w-1.5 rounded-full bg-[#3f74d8]" />}
-            </button>
-          ))}
+          {nav.map(({ icon: Icon, label }) => {
+            const active = view === label;
+            return (
+              <button key={label} onClick={() => setView(label)}
+                className={`group mb-1 flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-[12px] font-bold transition ${active ? "bg-[#eaf2ff] text-[#2f62b8]" : "text-[#6a7c91] hover:bg-[#f0f4f8] hover:text-[#263f5e]"}`}>
+                <Icon size={17} strokeWidth={active ? 2.4 : 1.8} />{!collapsed && <span>{label}</span>}{active && !collapsed && <span className="ml-auto h-1.5 w-1.5 rounded-full bg-[#3f74d8]" />}
+              </button>
+            );
+          })}
         </div>
         <div className="mt-auto px-3 pb-4">
           <button onClick={() => toast.info("Settings will be connected to your workspace preferences")}
@@ -250,8 +273,8 @@ export default function Home() {
           </button>
           <div className={`border-t border-[#e8edf2] pt-4 ${collapsed ? "text-center" : ""}`}>
             <div className="flex items-center gap-3 px-2">
-              <div className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#dbe8f9] text-[11px] font-extrabold text-[#2f62b8]">AS</div>
-              {!collapsed && <div><div className="text-[11px] font-extrabold">Yash Gupta</div><div className="mt-0.5 flex items-center gap-1 font-mono text-[9px] text-[#8494a6]"><span className="h-1.5 w-1.5 rounded-full bg-[#35b985]" /> Sales Intelligence</div></div>}
+              <div className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#dbe8f9] text-[11px] font-extrabold text-[#2f62b8]">{USER_INITIALS}</div>
+              {!collapsed && <div><div className="text-[11px] font-extrabold">{USER_NAME}</div><div className="mt-0.5 flex items-center gap-1 font-mono text-[9px] text-[#8494a6]"><span className="h-1.5 w-1.5 rounded-full bg-[#35b985]" /> Sales Intelligence</div></div>}
             </div>
           </div>
         </div>
@@ -261,12 +284,15 @@ export default function Home() {
         <div className="fixed inset-0 z-50 bg-[#10233f]/25 lg:hidden" onClick={() => setMobileNav(false)}>
           <div className="h-full w-[260px] bg-[#fbfcfd] p-4" onClick={e => e.stopPropagation()}>
             <div className="flex items-center justify-between px-2 py-3"><Logo /><button onClick={() => setMobileNav(false)}><X size={18} /></button></div>
-            {nav.map(({ icon: Icon, label, active }) => (
-              <button key={label} onClick={() => { setMobileNav(false); if (!active) toast.info(`${label} view is ready for the next data connection`); }}
-                className={`mt-2 flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-[12px] font-bold ${active ? "bg-[#eaf2ff] text-[#2f62b8]" : "text-[#6a7c91]"}`}>
-                <Icon size={17} />{label}
-              </button>
-            ))}
+            {nav.map(({ icon: Icon, label }) => {
+              const active = view === label;
+              return (
+                <button key={label} onClick={() => { setMobileNav(false); setView(label); }}
+                  className={`mt-2 flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-[12px] font-bold ${active ? "bg-[#eaf2ff] text-[#2f62b8]" : "text-[#6a7c91]"}`}>
+                  <Icon size={17} />{label}
+                </button>
+              );
+            })}
           </div>
         </div>
       )}
@@ -278,7 +304,7 @@ export default function Home() {
             <button className="hidden rounded-lg p-2 text-[#71849a] hover:bg-[#edf2f7] lg:block" onClick={() => setCollapsed(!collapsed)}>{collapsed ? <PanelLeftOpen size={18} /> : <PanelLeftClose size={18} />}</button>
             <div>
               <div className="font-mono text-[9px] font-bold uppercase tracking-[.2em] text-[#91a0b0]">{vacancyData ? `As of ${vacancyData.reference_date}` : "Loading…"}</div>
-              <h1 className="mt-1 text-[18px] font-extrabold tracking-[-.03em] text-[#10233f]">Good morning, Yash <span className="text-[#f0b238]">.</span></h1>
+              <h1 className="mt-1 text-[18px] font-extrabold tracking-[-.03em] text-[#10233f]">Good morning, {USER_NAME} <span className="text-[#f0b238]">.</span></h1>
             </div>
           </div>
           <div className="flex items-center gap-2 sm:gap-4">
@@ -287,10 +313,11 @@ export default function Home() {
             </div>
             <div className="hidden items-center gap-2 rounded-xl border border-[#e2e8ef] bg-white px-3 py-2 md:flex"><CalendarDays size={14} className="text-[#6e86a1]" /><span className="text-[11px] font-bold">Next 90 days</span></div>
             <button className="relative rounded-xl border border-[#e2e8ef] bg-white p-2.5 text-[#6d8095] hover:bg-[#f1f5f8]" onClick={() => toast.info("You are all caught up")}><Bell size={16} /><span className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-[#f0b238]" /></button>
-            <div className="hidden h-8 w-8 place-items-center rounded-full bg-[#dbe8f9] text-[10px] font-extrabold text-[#2f62b8] sm:grid">YG</div>
+            <div className="hidden h-8 w-8 place-items-center rounded-full bg-[#dbe8f9] text-[10px] font-extrabold text-[#2f62b8] sm:grid">{USER_INITIALS}</div>
           </div>
         </header>
 
+        {view === "Dashboard" && (
         <div className="relative overflow-hidden px-5 py-7 lg:px-8">
           <div className="relative mx-auto max-w-[1460px]">
             <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
@@ -459,6 +486,192 @@ export default function Home() {
             </div>
           </div>
         </div>
+        )}
+
+        {view === "Vacancies" && (
+          <div className="px-5 py-7 lg:px-8">
+            <div className="mx-auto max-w-[1460px]">
+              <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
+                <div>
+                  <div className="flex items-center gap-2"><h2 className="text-[22px] font-extrabold tracking-[-.03em] text-[#10233f]">All vacancies</h2><Pill tone="blue">{vacancyData ? `${vacancyData.count} live` : "…"}</Pill></div>
+                  <p className="mt-1 text-[12px] text-[#8b9bad]">Every hoarding already vacant or going vacant in the next 90 days, straight from the API.</p>
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <div className="flex items-center gap-2 rounded-lg border border-[#e1e8ef] bg-white px-2.5 py-2"><Search size={13} className="text-[#8da0b3]" /><input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search..." className="w-36 bg-transparent text-[10.5px] outline-none" /></div>
+                  <select value={sort} onChange={e => setSort(e.target.value)} className="rounded-lg border border-[#e1e8ef] bg-white px-2.5 py-2 text-[10.5px] font-bold text-[#5f7288] outline-none">
+                    <option>Soonest vacancy</option><option>Highest revenue at risk</option><option>Highest traffic</option><option>Highest priority</option>
+                  </select>
+                </div>
+              </div>
+              <div className="mb-4 flex flex-wrap gap-2">
+                {["All", "High", "Medium", "Low"].map(p => (
+                  <button key={p} onClick={() => setPriority(p)} className={`rounded-full px-3 py-1.5 text-[10px] font-bold transition ${priority === p ? "bg-[#10233f] text-white" : "bg-white text-[#7c8fa3] hover:bg-[#edf2f7]"}`}>{p === "All" ? "All priorities" : `${p} priority`}</button>
+                ))}
+              </div>
+              {!vacancyData && <div className="rounded-2xl border border-[#e5ebf1] bg-white p-8 text-center text-[12px] text-[#8b9bad]">Loading vacancies…</div>}
+              <div className="grid gap-3 lg:grid-cols-2">
+                {filtered.map(v => {
+                  const p = PRIORITY_FOR_CATEGORY[v.category];
+                  return (
+                    <div key={v.hoarding_id} className="relative overflow-hidden rounded-2xl border border-[#e5ebf1] bg-white p-4 shadow-[0_6px_20px_rgba(32,63,93,.035)]">
+                      <div className={`absolute inset-y-0 left-0 w-1 ${p === "High" ? "bg-[#f5b544]" : p === "Medium" ? "bg-[#7aa9e9]" : "bg-[#b7c5d1]"}`} />
+                      <div className="flex items-start justify-between gap-3 pl-2">
+                        <div>
+                          <div className="flex flex-wrap items-center gap-2"><span className="font-mono text-[12px] font-bold text-[#203b5e]">{v.hoarding_id}</span><Pill tone={p === "High" ? "amber" : p === "Medium" ? "blue" : "slate"}>{p}</Pill></div>
+                          <div className="mt-1 flex items-center gap-1.5 text-[12px] font-bold text-[#334d69]"><MapPin size={12} className="text-[#7393b7]" />{v.location}<span className="font-normal text-[#a2afbc]">·</span><span className="font-normal text-[#8495a7]">{v.size}</span></div>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-mono text-[14px] font-bold text-[#172e4c]">{money(v.monthly_rate)}<span className="font-sans text-[10px] font-medium text-[#91a0b0]">/mo</span></div>
+                          <div className="mt-1 font-mono text-[9px] font-bold uppercase tracking-[.1em] text-[#a1adba]">{v.already_vacant ? "already vacant" : `${v.days_until_vacant}d left`}</div>
+                        </div>
+                      </div>
+                      <div className="mt-3 flex justify-end gap-2 pl-2">
+                        <button onClick={() => openOpportunity(v)} className="flex items-center gap-1.5 rounded-lg bg-[#10233f] px-3 py-2 text-[10px] font-extrabold text-white hover:bg-[#1d416e]">View opportunity <ChevronRight size={13} /></button>
+                      </div>
+                    </div>
+                  );
+                })}
+                {vacancyData && filtered.length === 0 && <div className="col-span-2 rounded-2xl border border-[#e5ebf1] bg-white p-8 text-center text-[12px] text-[#8b9bad]">No vacancies match these filters.</div>}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {view === "Leads" && (
+          <div className="px-5 py-7 lg:px-8">
+            <div className="mx-auto max-w-[900px]">
+              <h2 className="text-[22px] font-extrabold tracking-[-.03em] text-[#10233f]">Ranked leads</h2>
+              <p className="mt-1 text-[12px] text-[#8b9bad]">Pick a vacancy to see its real, scored top-3 customers.</p>
+              <select
+                value={pickerHoardingId ?? ""}
+                onChange={e => { const id = e.target.value || null; setPickerHoardingId(id); if (id) ensureLeadsLoaded(id); }}
+                className="mt-4 w-full max-w-sm rounded-lg border border-[#e1e8ef] bg-white px-3 py-2.5 text-[12px] font-bold text-[#3c5672] outline-none"
+              >
+                <option value="">Select a hoarding…</option>
+                {vacancies.map(v => <option key={v.hoarding_id} value={v.hoarding_id}>{v.hoarding_id} — {v.location}</option>)}
+              </select>
+
+              {pickerHoardingId && !leadsByHoarding[pickerHoardingId] && <div className="mt-6 text-[12px] text-[#8b9bad]">Scoring candidates…</div>}
+
+              {pickerHoardingId && leadsByHoarding[pickerHoardingId] && (
+                <div className="mt-5 space-y-3">
+                  {leadsByHoarding[pickerHoardingId].candidates_excluded_on_budget > 0 && (
+                    <div className="text-[10px] text-[#9aa8b7]">{leadsByHoarding[pickerHoardingId].candidates_excluded_on_budget} of {leadsByHoarding[pickerHoardingId].candidates_considered} customers excluded — budget band can't cover this site's rate.</div>
+                  )}
+                  {leadsByHoarding[pickerHoardingId].leads.map((lead, i) => (
+                    <div key={lead.customer_id} className="rounded-2xl border border-[#e5ebf1] bg-white p-4">
+                      <div className="flex items-start gap-3">
+                        <div className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg font-mono text-[12px] font-extrabold ${i === 0 ? "bg-[#fff5dc] text-[#b57e13]" : "bg-[#edf3f8] text-[#62809f]"}`}>#{i + 1}</div>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between gap-2"><div className="text-[13px] font-extrabold text-[#203b5e]">{lead.name}</div><div className="font-mono text-[15px] font-bold text-[#2f62b8]">{Math.round(lead.score * 100)}%</div></div>
+                          <div className="mt-1 text-[10px] text-[#8496a8]">{lead.industry} · {lead.budget_band} budget · relationship {lead.relationship_score}/10{lead.is_cold_relationship && " · cold"}</div>
+                        </div>
+                      </div>
+                      <div className="mt-3 flex flex-wrap gap-1.5">{lead.reasons.slice(0, 2).map(r => <span key={r} className="inline-flex items-center gap-1 rounded-full bg-[#f1f8f5] px-2 py-1 text-[9px] font-bold text-[#347c62]"><Check size={10} />{r}</span>)}</div>
+                      <button onClick={() => generatePitch(pickerHoardingId, { id: lead.customer_id, name: lead.name })} className="mt-3 flex items-center gap-1.5 rounded-lg bg-[#10233f] px-3 py-2 text-[10px] font-extrabold text-white hover:bg-[#1d416e]"><Sparkles size={12} className="text-[#f5b544]" /> Generate pitch</button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {view === "Analytics" && (
+          <div className="px-5 py-7 lg:px-8">
+            <div className="mx-auto max-w-[1460px]">
+              <h2 className="text-[22px] font-extrabold tracking-[-.03em] text-[#10233f]">Analytics</h2>
+              <p className="mt-1 text-[12px] text-[#8b9bad]">Aggregated from the live vacancy list — nothing here is historical or invented.</p>
+
+              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                {[
+                  { label: "Upcoming Vacancies", value: vacancyData ? String(vacancyData.count) : "—" },
+                  { label: "Revenue at Risk / mo", value: vacancyData ? money(vacancyData.total_revenue_at_risk_per_month) : "—" },
+                  { label: "High-priority sites", value: String(highPriorityCount) },
+                ].map(({ label, value }) => (
+                  <div key={label} className="rounded-2xl border border-[#e5ebf1] bg-white p-4">
+                    <div className="font-mono text-[26px] font-bold tracking-[-.05em] text-[#10233f]">{value}</div>
+                    <div className="mt-1 text-[11px] font-extrabold text-[#4e627a]">{label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-5 grid gap-5 lg:grid-cols-2">
+                <div className="rounded-2xl border border-[#e5ebf1] bg-white p-5">
+                  <h3 className="text-[14px] font-extrabold">Revenue at risk by category</h3>
+                  <p className="mt-1 text-[10px] text-[#93a1af]">Monthly exposure · ₹L, current snapshot</p>
+                  <div className="mt-5 h-[220px] w-full">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <AreaChart data={byCategory.map(b => ({ category: b.category, value: Number((b.risk / 100000).toFixed(1)) }))}>
+                        <defs><linearGradient id="fillRiskA" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stopColor="#4c83df" stopOpacity={.22} /><stop offset="100%" stopColor="#4c83df" stopOpacity={0} /></linearGradient></defs>
+                        <CartesianGrid vertical={false} stroke="#edf1f4" />
+                        <XAxis dataKey="category" tick={{ fontSize: 9, fill: "#97a7b7" }} axisLine={false} tickLine={false} />
+                        <YAxis hide />
+                        <Tooltip contentStyle={{ borderRadius: 10, border: "1px solid #e5ebf1", fontSize: 11 }} formatter={(v: number) => [`₹${v}L`, "Exposure"]} />
+                        <Area type="monotone" dataKey="value" stroke="#3f74d8" strokeWidth={2} fill="url(#fillRiskA)" />
+                      </AreaChart>
+                    </ResponsiveContainer>
+                  </div>
+                </div>
+                <div className="rounded-2xl border border-[#e5ebf1] bg-white p-5">
+                  <h3 className="text-[14px] font-extrabold">Vacancies by category</h3>
+                  <p className="mt-1 text-[10px] text-[#93a1af]">Current pipeline, grouped by rate-card tier</p>
+                  <div className="mt-5 h-[220px]">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart data={byCategory.map(b => ({ category: b.category, count: b.count }))} barSize={32}>
+                        <CartesianGrid vertical={false} stroke="#edf1f4" />
+                        <XAxis dataKey="category" tick={{ fontSize: 9, fill: "#97a7b7" }} axisLine={false} tickLine={false} />
+                        <YAxis hide />
+                        <Tooltip cursor={{ fill: "#f8fafc" }} contentStyle={{ borderRadius: 10, border: "1px solid #e5ebf1", fontSize: 11 }} />
+                        <Bar dataKey="count" fill="#87aee2" radius={[5, 5, 2, 2]} />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {view === "AI Pitch Studio" && (
+          <div className="px-5 py-7 lg:px-8">
+            <div className="mx-auto max-w-[640px]">
+              <h2 className="text-[22px] font-extrabold tracking-[-.03em] text-[#10233f]">AI Pitch Studio</h2>
+              <p className="mt-1 text-[12px] text-[#8b9bad]">Pick a vacancy and a customer, then generate a grounded pitch from the real API.</p>
+
+              <div className="mt-5 space-y-3 rounded-2xl border border-[#e5ebf1] bg-white p-4">
+                <label className="block text-[10.5px] font-bold text-[#718399]">Hoarding
+                  <select
+                    value={studioHoardingId ?? ""}
+                    onChange={e => { const id = e.target.value || null; setStudioHoardingId(id); setStudioCustomerId(null); if (id) ensureLeadsLoaded(id); }}
+                    className="mt-1 w-full rounded-lg border border-[#e3eaf0] bg-[#f9fbfc] px-3 py-2.5 text-[12px] font-bold text-[#3c5672] outline-none"
+                  >
+                    <option value="">Select a hoarding…</option>
+                    {vacancies.map(v => <option key={v.hoarding_id} value={v.hoarding_id}>{v.hoarding_id} — {v.location}</option>)}
+                  </select>
+                </label>
+                <label className="block text-[10.5px] font-bold text-[#718399]">Customer
+                  <select
+                    value={studioCustomerId ?? ""}
+                    onChange={e => setStudioCustomerId(e.target.value || null)}
+                    disabled={!studioHoardingId || !leadsByHoarding[studioHoardingId]}
+                    className="mt-1 w-full rounded-lg border border-[#e3eaf0] bg-[#f9fbfc] px-3 py-2.5 text-[12px] font-bold text-[#3c5672] outline-none disabled:opacity-50"
+                  >
+                    <option value="">{studioHoardingId ? (leadsByHoarding[studioHoardingId] ? "Select a customer…" : "Loading leads…") : "Pick a hoarding first"}</option>
+                    {studioHoardingId && leadsByHoarding[studioHoardingId]?.leads.map(l => <option key={l.customer_id} value={l.customer_id}>{l.name} — {Math.round(l.score * 100)}% match</option>)}
+                  </select>
+                </label>
+                <button
+                  disabled={!studioHoardingId || !studioCustomerId}
+                  onClick={() => { const lead = leadsByHoarding[studioHoardingId!]?.leads.find(l => l.customer_id === studioCustomerId); if (lead) generatePitch(studioHoardingId!, { id: lead.customer_id, name: lead.name }); }}
+                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#10233f] px-3 py-3 text-[11px] font-extrabold text-white hover:bg-[#1d416e] disabled:opacity-40"
+                >
+                  <Sparkles size={14} className="text-[#f5b544]" /> Generate pitch
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </main>
 
       {drawer && selected && (
